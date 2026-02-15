@@ -3,19 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Business</title>
-
+  <title>Premium Shirt Business</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f5f5f5;
+      background: #f8f8f8;
     }
 
     header {
-      background: #111;
+      background: #222;
       color: white;
-      padding: 15px;
+      padding: 25px;
       text-align: center;
     }
 
@@ -27,24 +26,24 @@
 
     nav a {
       color: white;
-      margin: 10px;
+      margin: 15px;
       text-decoration: none;
       font-weight: bold;
     }
 
     .hero {
-      padding: 50px;
+      padding: 60px;
       text-align: center;
-      background: #007bff;
+      background: #ff6f00;
       color: white;
     }
 
     .section {
-      padding: 30px;
+      padding: 40px;
       text-align: center;
     }
 
-    .services {
+    .products {
       display: flex;
       justify-content: center;
       gap: 20px;
@@ -53,69 +52,156 @@
 
     .card {
       background: white;
-      padding: 20px;
-      width: 250px;
+      padding: 25px;
+      width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .price {
+      font-weight: bold;
+      color: #ff6f00;
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    .buy-btn, .pay-btn {
+      margin-top: 12px;
+      padding: 12px 20px;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .buy-btn {
+      background: #28a745;
+    }
+
+    .buy-btn:hover {
+      background: #218838;
+    }
+
+    .pay-btn {
+      background: #007bff;
+      margin-left: 5px;
+    }
+
+    .pay-btn:hover {
+      background: #0056b3;
+    }
+
+    select {
+      margin-top: 10px;
+      padding: 8px;
+      border-radius: 5px;
+      width: 100%;
     }
 
     footer {
-      background: #111;
+      background: #222;
       color: white;
       text-align: center;
-      padding: 15px;
+      padding: 20px;
       margin-top: 20px;
     }
+
   </style>
 </head>
 
 <body>
 
 <header>
-  <h1>My Business</h1>
-  <p>Your success is our priority</p>
+  <h1>Premium Shirt Collection</h1>
+  <p>Custom Shirts – Starting at ₦25,000</p>
 </header>
 
 <nav>
   <a href="#">Home</a>
-  <a href="#">Services</a>
-  <a href="#">Contact</a>
+  <a href="#products">Products</a>
+  <a href="#contact">Contact</a>
 </nav>
 
 <div class="hero">
-  <h2>Welcome to My Business 🚀</h2>
-  <p>We provide top-quality services to help you grow.</p>
+  <h2>Welcome to Our Premium Shirt Store 🚀</h2>
+  <p>Get the finest quality shirts customized for you.</p>
 </div>
 
-<div class="section">
-  <h2>Our Services</h2>
+<div class="section" id="products">
+  <h2>Our Custom Shirts</h2>
+  <div class="products">
 
-  <div class="services">
     <div class="card">
-      <h3>Service 1</h3>
-      <p>Describe your service here.</p>
+      <img src="https://via.placeholder.com/280x280?text=Shirt+1" alt="Shirt 1">
+      <h3>Classic White Shirt</h3>
+      <p>High-quality cotton, tailored to fit perfectly.</p>
+      <p class="price">₦25,000</p>
+      <select>
+        <option value="white">White</option>
+        <option value="black">Black</option>
+        <option value="blue">Blue</option>
+      </select>
+      <div style="margin-top:10px;">
+        <button class="buy-btn" onclick="window.location.href='https://wa.me/2347014961792?text=I%20want%20to%20buy%20Classic%20White%20Shirt'">Buy via WhatsApp</button>
+        <button class="pay-btn" onclick="window.open('https://www.opaycheckout.com/pay?account=7014961792&amount=25000&description=Classic%20White%20Shirt','_blank')">Pay with OPAY</button>
+      </div>
     </div>
 
     <div class="card">
-      <h3>Service 2</h3>
-      <p>Describe your service here.</p>
+      <img src="https://via.placeholder.com/280x280?text=Shirt+2" alt="Shirt 2">
+      <h3>Elegant Black Shirt</h3>
+      <p>Perfect for formal or casual premium wear.</p>
+      <p class="price">₦30,000</p>
+      <select>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+        <option value="grey">Grey</option>
+      </select>
+      <div style="margin-top:10px;">
+        <button class="buy-btn" onclick="window.location.href='https://wa.me/2347014961792?text=I%20want%20to%20buy%20Elegant%20Black%20Shirt'">Buy via WhatsApp</button>
+        <button class="pay-btn" onclick="window.open('https://www.opaycheckout.com/pay?account=7014961792&amount=30000&description=Elegant%20Black%20Shirt','_blank')">Pay with OPAY</button>
+      </div>
     </div>
 
     <div class="card">
-      <h3>Service 3</h3>
-      <p>Describe your service here.</p>
+      <img src="https://via.placeholder.com/280x280?text=Shirt+3" alt="Shirt 3">
+      <h3>Graphic Designer Tee</h3>
+      <p>Unique prints designed just for you.</p>
+      <p class="price">₦35,000</p>
+      <select>
+        <option value="red">Red</option>
+        <option value="white">White</option>
+        <option value="black">Black</option>
+      </select>
+      <div style="margin-top:10px;">
+        <button class="buy-btn" onclick="window.location.href='https://wa.me/2347014961792?text=I%20want%20to%20buy%20Graphic%20Designer%20Tee'">Buy via WhatsApp</button>
+        <button class="pay-btn" onclick="window.open('https://www.opaycheckout.com/pay?account=7014961792&amount=35000&description=Graphic%20Designer%20Tee','_blank')">Pay with OPAY</button>
+      </div>
     </div>
+
   </div>
 </div>
 
-<div class="section">
+<div class="section" id="contact">
   <h2>Contact Us</h2>
   <p>Email: your@email.com</p>
-  <p>Phone: +234 XXX XXX XXXX</p>
+  <p>Phone/WhatsApp: <a href="https://wa.me/2347014961792" target="_blank">07014961792</a></p>
 </div>
 
 <footer>
-  <p>© 2026 My Business. All rights reserved.</p>
+  <p>© 2026 Premium Shirt Collection. All rights reserved.</p>
 </footer>
 
 </body>
