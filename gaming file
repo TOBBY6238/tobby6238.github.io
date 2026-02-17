@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mini Runner Game</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #111;
+      color: white;
+      font-family: Arial;
+    }
+    canvas {
+      display: block;
+      margin: auto;
+      background: #222;
+    }
+    #score {
+      text-align: center;
+      font-size: 20px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="score">Score: 0</div>
+<canvas id="gameCanvas" width="400" height="500"></canvas>
+
+<script>
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+let player = {
+  x: 180,
+  y: 400,
+  width: 40,
+  height: 40,
+  dy: 0,
+  gravity: 0.6,
+  jump: -12
+};
+
+let obstacles = [];
+let score = 0;
+let gameOver = false;
+
+// Jump
+document.addEventListener("keydown", function(e) {
+  if (e.code === "Space" && player.y === 400) {
+    player.dy = player.jump;
+  }
+});
+
+// Create obstacles
+function createObstacle() {
+  let size = 30 + Math.random() * 20;
+  obstacles.push({
+    x: Math.random() * (canvas.width - size),
+    y: -size,
+    width: size,
+    height: size
+  });
+}
+
+// Update game
+function update() {
+  if (gameOver) return;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Player physics
+  player.dy += player.gravity;
+  player.y += player.dy;
+
+  if (player.y > 400) {
+    player.y = 400;
+    player.dy = 0;
+  }
+
+  // Draw player
+  ctx.fillStyle = "cyan";
+  ctx.fillRect(player.x, player.y, player.width, player.height);
+
+  // Obstacles
+  for (let i = 0; i < obstacles.length; i++) {
+    let obs = obstacles[i];
+    obs.y += 5;
+
+    ctx.fillStyle = "red";
+    ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
+
+    // Collision
+    if (
+      player.x < obs.x + obs.width &&
+      player.x + player.width > obs.x &&
+      player.y < obs.y + obs.height &&
+      player.y + player.height > obs.y
+    ) {
+      gameOver = true;
+      alert("Game Over! Score: " + score);
+      location.reload();
+    }
+  }
+
+  // Remove passed obstacles
+  obstacles = obstacles.filter(o => o.y < canvas.height);
+
+  // Score
+  score++;
+  document.getElementById("score").innerText = "Score: " + score;
+
+  requestAnimationFrame(update);
+}
+
+// Spawn obstacles
+setInterval(createObstacle, 1000);
+
+// Start game
+update();
+</script>
+
+</body>
+</html>
